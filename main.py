@@ -5,12 +5,12 @@ from models.data import ProductionModel
 
 app = Flask(__name__)
 api = Api(app)
+model = ProductionModel()
 
 
 class DataEntryGate(Resource):
     def get(self):
-        ProductionModel()
-        return {'hello': 'world'}
+        return model.get_data()
 
 
 api.add_resource(DataEntryGate, '/')
